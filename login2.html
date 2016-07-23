@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Documento sin título</title>
+</head>
+
+<body>
+<form method="post">
+<div id="login">
+<table border="0" align="center">
+<tr><td>DUI</td><td><div id="dui"><input type="text" name="txtDui" id="txtDui" pattern="[0-9]{9,10}" placeholder="introduzca DUI sin espacios" required></div></td></tr>
+<tr><td>FECHA DE EXPIRACION</td><td><div id="fechaExp"><input type="date" name="txtfecha" id="txtfecha" required></div></td></tr>
+<tr><td>SEXO</td><td><div id="sexo"><select name="txtsexo" id="txtsexo"><option value="M">Masculino</option>
+		  <option value="F">Femenino</option>
+</select></div></td></tr>
+<tr><td>CORREO</td><td><div id="txtcorreo"><input type="email"na name="txtcorreo" id="txtcorreo" required></div></td></tr>
+<tr><td colspan="2"><div id="botones"><input type="submit" name="btnIngresar" value="INGRESAR">
+ <input type="reset" value="LIMPIAR">
+</div></td></tr>
+</table>
+</div>
+</form>
+</body>
+</html>
