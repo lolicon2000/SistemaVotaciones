@@ -1,0 +1,75 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>ACTIVACION DE CUENTA</title>
+<link href="../css/bootstrap.min.css" rel="stylesheet">
+<link href="../css/background.css" rel="stylesheet">
+</head>
+
+<body>
+
+ <div class="container">
+ 
+ <div class="col-md-8 col-md-offset-2 los">
+    <div class="page-header">
+    <h4 class="text-center"><strong>ACTIVACION DE CUENTA</strong></h4>
+  </div>
+ 
+  <form action="#" method="post" class="form-horizontal" role="form">
+ 	
+    <div class="form-group">
+	<label for="dui" class="control-label col-lg-5">DUI:</label>
+    <div class="col-lg-3">
+    <input type="text" class="form-control" id="dui" name="txtdui" pattern="[0-9]{7}" placeholder="DUI" required>
+    </div>
+    </div>
+    
+    <div class="form-group">
+	<label for="claveNueva" class="control-label col-lg-5">NUEVA CONTRASEÑA:</label>
+    <div class="col-lg-3">
+    <input type="password" class="form-control" id="claveNueva" name="txtClaveNueva" placeholder="Nueva Contraseña" required>
+    </div>
+    </div>
+    
+    
+    <div class="form-group">
+	<label for="confirmarClave" class="control-label col-lg-5">CONFIRME CONTRASEÑA:</label>
+    <div class="col-lg-3">
+    <input type="password" class="form-control" id="confirmarClave" name="txtClaveConfirm" placeholder="Confirme Contraseña" required>
+    </div>
+    </div>
+    
+    <div class="form-group">
+	<label for="preguntaSeguridad" class="control-label col-lg-5">PREGUNTA SEGURIDAD:</label>
+    <div class="col-lg-6">
+    <select name="txtpreguntaSeguridad" class="form-control">
+    	<option value="0">SELECCIONE UNA PREGUNTA</option>
+        <option value="1">CUAL ES SU PROFESOR FAVORITO</option>
+    </select>
+    </div>
+    </div>
+    
+     <div class="form-group">
+	<label for="respuesta" class="control-label col-lg-5">RESPUESTA:</label>
+    <div class="col-lg-4">
+    <input type="text" class="form-control" id="respuesta" name="txtrespuesta" placeholder="Respuesta">
+    </div>
+    </div>
+    
+    <div class="form-group">
+     <div class="col-lg-offset-5 col-lg-10">
+    <input type="submit" class="btn-primary btn" name="btnActivar" value="Activar">&nbsp;&nbsp;
+    <input type="reset"  class="btn btn-primary" value="Limpiar">
+     </div>
+   </div>
+
+    
+    
+  </form>
+</div>   
+	<script src="../js/jquery-2.0.2.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+ 
+</body>
+</html>

@@ -1,0 +1,26 @@
+body{
+background-color: #b0e1f5;
+}
+
+.container{
+
+background-color: #b0e1f5;
+
+}
+
+.los{
+	background:#FFF;
+	border-radius:8px;
+	padding:8px;
+}
+
+.log{
+	background:#FFF;
+	padding:8px;
+	border-radius:8px;
+	width:30%;
+	margin:120px auto;
+
+
+}
+

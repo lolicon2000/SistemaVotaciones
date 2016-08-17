@@ -1,0 +1,60 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>LOGIN</title>
+<link href="../css/bootstrap.min.css" rel="stylesheet">
+<link href="../css/background.css" rel="stylesheet">
+</head>
+
+<body>
+<br>
+
+
+<div class="container">
+
+	
+ <form action="#" class="form-horizontal" role="form"  method="post">
+     
+<div class="log">     
+  <div class="form-group">
+    <label for="dui" class="col-lg-5 control-label">NUMERO DE DUI:</label>
+   <div class="col-lg-6">
+    <input type="text" class="form-control" name="txtDui" id="dui" pattern="[0-9]{7}" title="Ingrese numero de dui sin guion" placeholder="DUI" required>
+   </div>
+  </div> 
+   
+    
+   <div class="form-group">
+    <label for="contra" class=" col-lg-5 control-label">CONTRASEÑA:</label>
+   <div class="col-lg-6">
+    <input type="password" class="form-control" name="txtcontra" id="contra" placeholder="Contraseña" required>
+   </div> 
+  </div>
+
+  <div class="form-group">
+  <div class="col-lg-6 col-lg-offset-3 control-label">
+  <label  for="recuperarContraseña"><a href="RecuperacionContraseña.html" class="btn-link">Olvido su contraseña</a></label>
+  </div>
+  </div>
+  
+  
+   <div class="form-group">
+   	  <div class="col-lg-offset-5 col-lg-10">
+    <input type="submit" class="btn-primary btn" name="btnIngresar" value="Ingresar">&nbsp;&nbsp;
+    <input type="reset"  class="btn btn-primary" value="Limpiar">
+   </div>
+   </div>
+   </div>
+    
+    </form>
+
+</div>
+</div>
+</div>
+    <script src="../js/jquery-2.0.2.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+
+</body>
+
+</html>

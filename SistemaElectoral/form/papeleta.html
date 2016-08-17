@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Papeleta de votaciones</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/stylo.css" rel="stylesheet">
+    <script src="../js/jquery-2.0.2.min.js"></script>
+    <script>
+    	$(document).on("ready",function(){
+    		$("div[data-tipo=bandera], div[data-tipo=diputado]").addClass("no-seleccionado");
+    		$("div[data-tipo=bandera], div[data-tipo=diputado]").hover(function(){
+    			if(!$(this).hasClass("seleccionado") && !$(this).hasClass("desactivado")) {
+	    			$(this).toggleClass("no-seleccionado");		
+    			}
+    		});
+    		$("div[data-tipo=diputado]").on("click",function(){
+    				var seleccionados = $("div.seleccionado").length;
+	    			var estado = $(this).attr("data-activo");	
+	    			if(estado == "false" && $(this).attr("desactivado") == "false") {
+	    				$(this).attr("data-activo","true");
+	    				$(this).removeClass("no-seleccionado");
+	    				$(this).addClass("seleccionado");
+	    			}	
+	    			else {
+	    				$(this).attr("data-activo","false");
+	    				$(this).removeClass("seleccionado");
+	    				$(this).addClass("no-seleccionado");
+	    			}
+    		});
+    		$("div[data-tipo=bandera]").on("click",function(){
+    			var bandera = $(this).attr("data-bandera");
+    			var activo = $(this).attr("data-activo");
+    			$("div[data-tipo=diputado]").removeClass("seleccionado");
+    			$("div[data-tipo=diputado]").addClass("no-seleccionado");
+    			if(activo == "false" && !$(this).hasClass("desactivado")) {
+    				$("div[data-tipo=diputado]").addClass("desactivado");
+    				$("div[data-tipo=bandera]").addClass("desactivado");
+	    			$("div[data-bandera="+bandera+"]").attr("data-activo","true");
+    				$("div[data-bandera="+bandera+"]").removeClass("desactivado");
+	    			$("div[data-bandera="+bandera+"]").removeClass("no-seleccionado");
+	    			$("div[data-bandera="+bandera+"]").removeClass("desactivado");
+	    			$("div[data-bandera="+bandera+"]").addClass("seleccionado");
+
+    			}
+    			else {
+    				$("div[data-tipo=bandera]").removeClass("desactivado");
+    				$("div[data-tipo=diputado]").removeClass("desactivado");
+    				$("div[data-bandera="+bandera+"]").attr("data-activo","false");
+	    			$("div[data-bandera="+bandera+"]").removeClass("seleccionado");
+	    			$("div[data-bandera="+bandera+"]").addClass("no-seleccionado");
+    			}
+    		});
+    	});
+    </script>
+    <style>
+		.selecionado {
+			opacity: 1.0;
+		}
+		.no-seleccionado {
+			opacity: 0.6;
+		}
+		.desactivado {
+			-webkit-filter: grayscale(100%);
+		}
+    </style>
+</head>
+
+<body>
+
+	<div class="container" data-name="papeleta">
+	<h3>Eleccion de diputados y diputadas a la asamblea legislativa</h3>
+		<div class="row">
+			<div class="col-md-2" data-tipo="bandera" data-activo="false" data-bandera="1">
+				<img src="../images/Bandera-ARENA-770x438.jpg" alt="" class="img-thumbnail img-responsive">
+			</div>
+			<div class="col-md-2" data-tipo="bandera" data-activo="false" data-bandera="2">
+				<img src="../images/Flag_of_FMLN.jpg" alt="" class="img-thumbnail img-responsive">
+			</div>
+			<div class="col-md-2" data-tipo="bandera" data-activo="false" data-bandera="3">
+				<img src="../images/LOGO_GANA.jpg" alt="" class="img-thumbnail img-responsive">
+			</div>
+			<div class="col-md-2 col-md-offset-4">
+				<button type="button" class="btn btn-primary btn-block">Realizar voto</button>
+				<button type="button" class="btn btn-primary btn-block">Abstener voto</button>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-2" data-candidato="partidario" data-tipo="diputado" data-activo="false" data-bandera="1">
+				<img src="../images/user.png" alt="" class="img-thumbnail img-responsive">
+			</div>
+			<div class="col-md-2" data-candidato="partidario" data-tipo="diputado" data-activo="false" data-bandera="2">
+				<img src="../images/user.png" alt="" class="img-thumbnail img-responsive">
+			</div>
+			<div class="col-md-2" data-candidato="partidario" data-tipo="diputado" data-activo="false" data-bandera="3">
+				<img src="../images/user.png" alt="" class="img-thumbnail img-responsive">
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-2" data-candidato="partidario" data-tipo="diputado" data-activo="false" data-bandera="1">
+				<img src="../images/user.png" alt="" class="img-thumbnail img-responsive">
+			</div>
+			<div class="col-md-2" data-candidato="partidario" data-tipo="diputado" data-activo="false" data-bandera="2">
+				<img src="../images/user.png" alt="" class="img-thumbnail img-responsive">
+			</div>
+			<div class="col-md-2" data-candidato="partidario" data-tipo="diputado" data-activo="false" data-bandera="3">
+				<img src="../images/user.png" alt="" class="img-thumbnail img-responsive">
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-2" data-candidato="partidario" data-tipo="diputado" data-activo="false" data-bandera="1">
+				<img src="../images/user.png" alt="" class="img-thumbnail img-responsive">
+			</div>
+			<div class="col-md-2" data-candidato="partidario" data-tipo="diputado" data-activo="false" data-bandera="2">
+				<img src="../images/user.png" alt="" class="img-thumbnail img-responsive">
+			</div>
+			<div class="col-md-2" data-candidato="partidario" data-tipo="diputado" data-activo="false" data-bandera="3">
+				<img src="../images/user.png" alt="" class="img-thumbnail img-responsive">
+			</div>
+		</div>
+		<div class="row">
+			<h3>Diputados independientes</h3>
+			<div class="col-md-2" data-candidato="independiente" data-tipo="diputado" data-activo="false">
+				<img src="../images/user.png" alt="" class="img-thumbnail img-responsive">
+			</div>
+			<div class="col-md-2" data-candidato="independiente" data-tipo="diputado" data-activo="false">
+				<img src="../images/user.png" alt="" class="img-thumbnail img-responsive">
+			</div>
+		</div>
+	</div>
+</body>
+</html>
