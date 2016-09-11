@@ -466,3 +466,192 @@ insert into votoindependiente (id_voto,id_candidato,valor_porcentual) values (1,
 
 /*cerrando una jrv*/
 insert into cierrejrv (id_jrv,fecha,hora) values (1,'2016-08-16','22:00:00');
+
+
+/*procedimientos almacenados agregados por carlos*/
+
+/*
+cuando la credencial de administrador es correcta, se retorna el id del usuario y un mensaje de exito,
+cuando las credenciales son incorrectos retorna 0 y un mensaje de error,
+al igual que cuando las credenciales no exiten en el sistema
+*/
+create or replace function entrarAdministrador(
+	in _dui varchar(10),
+	in _contrasenia varchar(15),
+	out idusuario int,
+	out mensaje varchar(50)
+) returns setof record as
+$body$
+	declare
+		id int;
+		tipo int;
+		texto varchar(50);
+	begin
+	if exists(select * from credencialtemporal ct inner join usuario u on ct.id_usuario = u.id_usuario where ct.num_dui = _dui and u.contrasenia = _contrasenia) then
+		select tp.id_tipo_usuario into tipo from tipousuario tp
+		inner join usuario u on u.id_tipo_usuario = tp.id_tipo_usuario
+		inner join credencialtemporal ct on ct.id_usuario = u.id_usuario
+		where ct.num_dui = _dui;
+		if(tipo = 1) then
+			select ct.id_usuario into id from credencialtemporal ct where num_dui = _dui;
+			texto = 'Bienvenido al sistema';
+		else
+			id = 0;
+			texto = 'No tienes lo privilegios para entrar';
+		end if;
+		
+	else
+		texto = 'Credenciales incorrectas';
+		id = 0;
+	end if;
+	return query select id, texto;
+	return;
+	end;
+$body$
+language plpgsql;
+
+
+/*
+este procediminto cumple la misma funcion que el anterior, pero hoy es para magistrados,
+muetra ademas un mensaje de advertencia cuando no se ha activado la cuenta
+*/
+create or replace function entrarMagistrado(
+	in _dui varchar(10),
+	in _contrasenia varchar(15),
+	out idusuario int,
+	out mensaje varchar(60)
+) returns setof record as
+$body$
+	declare
+		id int;
+		tipo int;
+		texto varchar(60);
+		confirmacion int;
+	begin
+	if exists(select * from credencialtemporal ct inner join usuario u on ct.id_usuario = u.id_usuario where ct.num_dui = _dui and u.contrasenia = _contrasenia) then
+		select tp.id_tipo_usuario into tipo from tipousuario tp
+		inner join usuario u on u.id_tipo_usuario = tp.id_tipo_usuario
+		inner join credencialtemporal ct on ct.id_usuario = u.id_usuario
+		where ct.num_dui = _dui;
+		if(tipo = 2) then
+			select ct.id_usuario into id from credencialtemporal ct where num_dui = _dui;
+			select u.confirmacion into confirmacion from usuario u 
+			inner join credencialTemporal ct on ct.id_usuario = u.id_usuario
+			where ct.num_dui = _dui;
+			if(confirmacion = 1) then
+				texto = 'Bienvenido al sistema, Magistrado';
+			else 
+				texto = 'Bienvenido al sistema, Magistrado. Debes activar tu cuenta';
+			end if;
+		else
+			id = 0;
+			texto = 'No tienes lo privilegios para entrar';
+		end if;
+		
+	else
+		texto = 'Credenciales incorrectas';
+		id = 0;
+	end if;
+	return query select id, texto;
+	return;
+	end;
+$body$
+language plpgsql;
+
+/*
+	permite o deniega la entrada para el usuario del cnr, muestra los
+	mimo mensajes que el procedimiento anterior
+	retorna el id del usuario y un mensaje de bienvenida
+	este procedimiento no muestra el mensaje de activacion, ya que solo se ingresara una vez al sitema
+	cuando las credenciales son incorrectas retorna 0 y el respectivo mensaje de error
+*/
+create or replace function entrarCNR(
+	in _dui varchar(10),
+	in _contrasenia varchar(15),
+	out idusuario int,
+	out mensaje varchar(60)
+) returns setof record as
+$body$
+	declare
+		id int;
+		tipo int;
+		texto varchar(60);
+		confirmacion int;
+	begin
+	if exists(select * from credencialtemporal ct inner join usuario u on ct.id_usuario = u.id_usuario where ct.num_dui = _dui and u.contrasenia = _contrasenia) then
+		select tp.id_tipo_usuario into tipo from tipousuario tp
+		inner join usuario u on u.id_tipo_usuario = tp.id_tipo_usuario
+		inner join credencialtemporal ct on ct.id_usuario = u.id_usuario
+		where ct.num_dui = _dui;
+		if(tipo = 3) then
+			select ct.id_usuario into id from credencialtemporal ct where num_dui = _dui;
+			select u.confirmacion into confirmacion from usuario u 
+			inner join credencialTemporal ct on ct.id_usuario = u.id_usuario
+			where ct.num_dui = _dui;
+			texto = 'Bienvenido al sistema, Representante del CNR';
+		else
+			id = 0;
+			texto = 'No tienes lo privilegios para entrar';
+		end if;
+		
+	else
+		texto = 'Credenciales incorrectas';
+		id = 0;
+	end if;
+	return query select id, texto;
+	return;
+	end;
+$body$
+language plpgsql;
+
+/*
+	permite o deniega la entrada al sistema a lo ciudadado,
+	cuando la credenciales con correctas retorna el id del usuario, y un mensaje de bienvenida, pidiendole que active
+	su cuenta, en caso que se encuentre desactivada
+	si las credenciales con incorrectas o no existen, retorna 0 y el respectivo mensaje
+*/
+create or replace function entrarVotante(
+	in _dui varchar(10),
+	in _contrasenia varchar(15),
+	out idusuario int,
+	out mensaje varchar(60)
+) returns setof record as
+$body$
+	declare
+		id int;
+		texto varchar(60);
+		confirmacion int;
+	begin
+	/*se comprueba que el ciudadano este regitrado en el sistema y tenga un usuario*/
+	if exists(select * from padronelectoral p inner join usuariopadron up on up.num_dui = p.num_dui inner join usuario u on u.id_usuario = up.id_usuario where p.num_dui = _dui and u.contrasenia = _contrasenia) then
+			/*se verifica si la cuenta esta activada*/
+			select u.confirmacion into confirmacion from usuario u 
+			inner join usuariopadron up on up.id_usuario = u.id_usuario
+			inner join padronelectoral p on p.num_dui = up.num_dui
+			where p.num_dui = _dui;
+			/*se selecciona el id del votante*/
+			select u.id_usuario into id from usuario u 
+			inner join usuariopadron up on up.id_usuario = u.id_usuario
+			inner join padronelectoral p on p.num_dui = up.num_dui;	
+			/*en caso de que la cuenta este activada*/
+			if (confirmacion = 1) then
+				texto = 'Bienvenido al sistema';
+			else
+				texto = 'Bienvenido al sistema, aun no ha activado tu cuenta';
+			end if;	
+	else
+		texto = 'Credenciales incorrectas';
+		id = 0;
+	end if;
+	return query select id, texto;
+	return;
+	end;
+$body$
+language plpgsql;
+
+/*uso de los procedimiento almacenados*/
+/*los parametros de entrada son numero de dui y contraseña*/
+select * from entrarAdministrador('00000000-0','12345');
+select * from entrarMagistrado('00000001-0','12345');
+select * from entrarCNR('00000006-0','12345');
+select * from entrarVotante('05423275-0','12345');
