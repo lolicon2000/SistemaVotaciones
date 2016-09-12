@@ -649,8 +649,172 @@ $body$
 $body$
 language plpgsql;
 
+
+/*
+	los datos de un magistrado deben aparecen en muchas tablas
+	cuando se ingresa un magistrado correctamente retorna 1 y un mensaje de exito
+	cuando el dui se repite, retorna 0 y el mensaje de error
+*/
+create or replace function agregarMagistrado(
+	in _num_dui varchar(10),
+	in _contrasenia varchar(15),
+	in _nombre varchar(20),
+	in _apellido varchar(20),
+	in _fecha_nac date,
+	in _sexo varchar(2),
+	in _direccion varchar(30),
+	in _municipio int,
+	out estado int,
+	out mensaje varchar(60)
+) returns setof record as
+$body$
+declare
+	idgenerado int;
+	texto varchar(60);
+	numero int;
+begin
+	if not exists(select * from credencialtemporal where num_dui = _num_dui) then
+		insert into usuario(id_tipo_usuario,contrasenia,confirmacion) values (2,'12345',0);
+		idgenerado = lastval();
+		insert into credencialtemporal(id_usuario,num_dui) values (idgenerado,_num_dui);
+		insert into excepcionusuario(id_usuario,num_dui,nombre,apellido,fecha_nac,sexo,direccion_especifica,id_municipio) values (idgenerado,_num_dui,_nombre,_apellido,_fecha_nac,_sexo,_direccion,_municipio);
+		texto = 'Magistrado registrado correctamente';
+		numero = 1;
+	else
+		texto = 'El numero de Dui ya esta registrado';
+		numero = 0;
+	end if;
+	return query select numero,texto;
+	return;
+end;
+$body$
+language plpgsql;
+
+
+/*
+	al igual que con el magistrado, los datos del representante del cnr van en 
+	varias tablas, retorna los mismos valores que la funcion anterior
+*/
+create or replace function agregarRepresentanteCNR(
+	in _num_dui varchar(10),
+	in _contrasenia varchar(15),
+	in _nombre varchar(20),
+	in _apellido varchar(20),
+	in _fecha_nac date,
+	in _sexo varchar(2),
+	in _direccion varchar(30),
+	in _municipio int,
+	out estado int,
+	out mensaje varchar(60)
+) returns setof record as
+$body$
+declare
+	idgenerado int;
+	texto varchar(60);
+	numero int;
+begin
+	if not exists(select * from credencialtemporal where num_dui = _num_dui) then
+		insert into usuario(id_tipo_usuario,contrasenia,confirmacion) values (3,'12345',0);
+		idgenerado = lastval();
+		insert into credencialtemporal(id_usuario,num_dui) values (idgenerado,_num_dui);
+		insert into excepcionusuario(id_usuario,num_dui,nombre,apellido,fecha_nac,sexo,direccion_especifica,id_municipio) values (idgenerado,_num_dui,_nombre,_apellido,_fecha_nac,_sexo,_direccion,_municipio);
+		texto = 'Representante CNR registrado correctamente';
+		numero = 1;
+	else
+		texto = 'El numero de Dui ya esta registrado';
+		numero = 0;
+	end if;
+	return query select numero,texto;
+	return;
+end;
+$body$
+language plpgsql;
+
+
+/*
+	procedimiento para agregar cuidadados votantes
+	este procedimiento se usará cuando se vacien lo registros del cnr
+	se agrega un ciudadano a la tabla padron y se creara una cuenta de usuario para este ciudadano
+	la contraseña por defecto sera el numero de dui
+*/
+create or replace function agregarVotante(
+	in _num_dui varchar(10),
+	in _nombre varchar(20),
+	in _apellido varchar(20),
+	in _fecha_nac date,
+	in _sexo varchar(2),
+	in _direccion varchar(30),
+	in _municipio int,
+	out estado int,
+	out mensaje varchar(60)
+) returns setof record as
+$body$
+declare
+	idgenerado int;
+	texto varchar(60);
+	numero int;
+begin
+	if not exists(select * from padronelectoral where num_dui = _num_dui) then
+		insert into usuario(id_tipo_usuario,contrasenia,confirmacion) values (3,_num_dui,0);
+		idgenerado = lastval();
+		insert into padronelectoral(num_dui,nombre,apellido,fecha_nac,sexo,direccion_especifica,id_municipio) values (_num_dui,_nombre,_apellido,_fecha_nac,_sexo,_direccion,_municipio);
+		insert into usuariopadron values (idgenerado,_num_dui);
+		texto = 'Ciudadano regitrado';
+		numero = 1;
+	else
+		texto = 'El numero de Dui ya esta registrado';
+		numero = 0;
+	end if;
+	return query select numero,texto;
+	return;
+end;
+$body$
+language plpgsql;
+
+/*
+	registro de supervisores externos, ellos incian sesion con su identificacion,
+	su contraseña por defecto es 12345
+	retorna 1 y un mensaje de exito cuando se inserto correctamente
+	retorna 0 y un mensaje de error cuando no se inserto
+*/
+create or replace function agregarSupervisorExt(
+	in _identificacion varchar(15),
+	in _contrasenia varchar(15),
+	in _nombre varchar(20),
+	in _apellido varchar(20),
+	in _sexo varchar(2),
+	in _pais varchar(15),
+	in _organizacion varchar(15),
+	out estado int,
+	out mensaje varchar(60)
+) returns setof record as
+$body$
+declare
+	numero int;
+	texto varchar(60);
+begin
+	if not exists(select * from infosupext where identificacion = _identificacion) then
+		insert into usuario(id_tipo_usuario,contrasenia,confirmacion) values (4,_contrasenia,0);
+		numero = lastval();
+		insert into infosupext (id_usuario,identificacion,nombre,apellido,sexo,pais,organizacion) values (numero,_identificacion,_nombre,_apellido,_sexo,_pais,_organizacion);
+		texto = 'Supervisor externo registrado correctamente';
+		return query select 1,texto;
+	else 
+		texto = 'La identificacion ya existe';
+		return query select 0,texto;
+	end if;
+	return;
+end;
+$body$
+language plpgsql;
+
 /*uso de los procedimiento almacenados*/
 /*los parametros de entrada son numero de dui y contraseña*/
+select * from agregarMagistrado('00000019-0','12345','Mauricio','Funes','1976-09-12','m','Avenida las amapolas',1);
+select * from agregarRepresentanteCNR('00000020-0','12345','Beatriz','Cocar','1996-06-12','f','Canton el espino, #12',2);
+select * from agregarVotante('12345671-0','Maria','Flores','1994-05-10','f','kernel informatico $5',2);
+select * from agregarSupervisorExt('053315-0980','12345','Will','Smith','m','Estados Unidos','OEA');
+
 select * from entrarAdministrador('00000000-0','12345');
 select * from entrarMagistrado('00000001-0','12345');
 select * from entrarCNR('00000006-0','12345');
