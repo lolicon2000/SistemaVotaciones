@@ -2,7 +2,7 @@
 create sequence sec_departamento;
 CREATE TABLE departamento(
     id_departamento INT default nextval('sec_departamento'),
-    nombre_departamento VARCHAR(15) NOT NULL UNIQUE,
+    nombre_departamento VARCHAR(50) NOT NULL,
     num_candidatos INT,
     CONSTRAINT pk_departamento PRIMARY KEY (id_departamento)
 );
@@ -11,7 +11,7 @@ create sequence sec_municipio;
 CREATE TABLE municipio (
     id_municipio INT default nextval('sec_municipio'),
     id_departamento INT NOT NULL,
-    nombre_municipio VARCHAR(15) NOT NULL UNIQUE,
+    nombre_municipio VARCHAR(50) NOT NULL,
     CONSTRAINT pk_municipio PRIMARY KEY (id_municipio)
 );
 
@@ -1018,7 +1018,7 @@ begin
 			inner join usuariopadron up on up.num_dui = p.num_dui
 			inner join usuario u on u.id_usuario = up.id_usuario
 			where p.num_dui = _num_dui;
-			update usuario set id_tipo_usuario = _tipo;
+			update usuario set id_tipo_usuario = _tipo where id_usuario = id;
 			texto = 'Usuario agregado';
 			numero = 1;
 		else
@@ -1035,6 +1035,9 @@ end;
 $body$
 language plpgsql;
 
+/*creacion de cuenta de administrador*/
+insert into usuario (id_tipo_usuario,contrasenia,confirmacion) values(1,'12345',0);
+insert into credencialTemporal (id_usuario, num_dui) values (1,'00000000-0');
 
 /*uso de los procedimiento almacenados*/
 /*los parametros de entrada son numero de dui y contraseña*/
@@ -1072,4 +1075,4 @@ select * from agregarUsuario('00000011-0',9);
 select * from entrarAdministrador('00000000-0','12345');
 select * from entrarMagistrado('00000001-0','12345');
 select * from entrarCNR('00000006-0','12345');
-select * from entrarVotante('05423275-0','12345');
+select * from entrarVotante('00000007-0','00000007-0');
