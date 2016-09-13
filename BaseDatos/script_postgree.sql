@@ -1035,6 +1035,35 @@ end;
 $body$
 language plpgsql;
 
+/*
+	procedimiento de login compartido por administrador, usuario cnr y magistrados
+	retorna el tipo de usuario y el dui
+*/
+create or replace function entrar(
+	in _dui varchar(10),
+	in _contrasenia varchar(15),
+	out tipo int,
+	out dui varchar(25)
+) returns setof record as
+$body$
+declare 
+	_tipousuario int;
+	texto varchar(25);
+begin
+	if exists(select * from usuario u inner join credencialtemporal ct on u.id_usuario = ct.id_usuario inner join tipousuario tp on tp.id_tipo_usuario = u.id_tipo_usuario where contrasenia = _contrasenia and num_dui = _dui) then
+		select tp.id_tipo_usuario into _tipousuario from usuario u inner join credencialtemporal ct
+		on u.id_usuario = ct.id_usuario
+		inner join tipousuario tp on tp.id_tipo_usuario = u.id_tipo_usuario
+		where contrasenia = _contrasenia and num_dui = _dui;
+		return query select _tipousuario, _dui;
+	else 
+		texto = 'credenciales incorrectas';
+		return query select 0, texto;
+	end if;
+end;
+$body$
+language plpgsql;
+
 /*creacion de cuenta de administrador*/
 insert into usuario (id_tipo_usuario,contrasenia,confirmacion) values(1,'12345',0);
 insert into credencialTemporal (id_usuario, num_dui) values (1,'00000000-0');
