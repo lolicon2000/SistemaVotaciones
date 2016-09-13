@@ -313,14 +313,314 @@ alter table detalleBitacora add constraint fk_detalleBitacora_credencialTemporal
 alter table observacion add constraint fk_observacion_infosupext foreign key (id_usuario) references infosupext(id_usuario);
 
 /*-----------------INSERCION DE REGISTROS DE PRUEBA----------------------*/
-insert into departamento (nombre_departamento) values ('san salvador');
-insert into departamento (nombre_departamento) values ('sonsonate');
+/** insercion departamento by roberto*/
+INSERT INTO departamento(nombre_departamento) VALUES ('Ahuachapan');
+INSERT INTO departamento(nombre_departamento) VALUES ('Santa Ana');
+INSERT INTO departamento(nombre_departamento) VALUES ('Sonsonate');
+INSERT INTO departamento(nombre_departamento) VALUES ('Chalatenango');
+INSERT INTO departamento(nombre_departamento) VALUES ('Cuscatlan');
+INSERT INTO departamento(nombre_departamento) VALUES ('San Salvador');
+INSERT INTO departamento(nombre_departamento) VALUES ('La Libertad');
+INSERT INTO departamento(nombre_departamento) VALUES ('San Vicente');
+INSERT INTO departamento(nombre_departamento) VALUES ('Cabañas');
+INSERT INTO departamento(nombre_departamento) VALUES ('La Paz');
+INSERT INTO departamento(nombre_departamento) VALUES ('Usulutan');
+INSERT INTO departamento(nombre_departamento) VALUES ('San Miguel');
+INSERT INTO departamento(nombre_departamento) VALUES ('Morazan');
+INSERT INTO departamento(nombre_departamento) VALUES ('La Union');
 
-insert into municipio (id_departamento,nombre_municipio) values (1,'san martin');
-insert into municipio (id_departamento,nombre_municipio) values (1,'soyapano');
+/**insercion municipio por departamento by roberto*/
 
-insert into municipio (id_departamento,nombre_municipio) values (2,'san joaquin');
-insert into municipio (id_departamento,nombre_municipio) values (2,'el rosario');
+/**Ahuachapan */
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('1', 'Ahuachapan');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('1', 'Apaneca');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('1', 'Atiquizaya');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('1', 'Concepcion de Ataco');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('1', 'El Refugio');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('1', 'Guaymango');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('1', 'Jujutla');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('1', 'San Francisco Menendez');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('1', 'San Lorenzo');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('1', 'San Pedro Puxtla');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('1', 'Tacuba');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('1', 'Turin');
+
+/**Santa ana */
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('2', 'Candelaria de la Frontera');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('2', 'Chalchuapa');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('2', 'Coatepeque');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('2', 'El Congo');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('2', 'El Porvenir');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('2', 'Masahuat');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('2', 'Metapan');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('2', 'San Antonio Pajonal');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('2', 'San Sebastián Salitrillo');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('2', 'Santa Ana');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('2', 'Santa Rosa Guachipilin');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('2', 'Santiago de la Frontera');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('2', 'Texistepeque');
+
+/**Sonsonate */
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('3', 'Acajutla');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('3', 'Armenia');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('3', 'Caluco');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('3', 'Cuisnahuat');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('3', 'Izalco');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('3', 'Juayua');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('3', 'Nahuizalco');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('3', 'Nahulingo');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('3', 'Salcoatitan');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('3', 'San Antonio del Monte');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('3', 'San Julián');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('3', 'Santa Catarina Masahuat');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('3', 'Santa Isabel Ishuatán');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('3', 'Santo Domingo Guzman');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('3', 'Sonsonate');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('3', 'Sonzacate');
+
+/**Chalatenango */
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('4', 'Agua Caliente');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('4', 'Arcatao');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('4', 'Azacualpa');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('4', 'Chalatenango (ciudad)');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('4', 'Comalapa');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('4', 'Citala');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('4', 'Concepción Quezaltepeque');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('4', 'Dulce Nombre de Maria');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('4', 'El Carrizal');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('4', 'El Paraiso');/*10*/
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('4', 'La Laguna');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('4', 'La Palma');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('4', 'La Reina');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('4', 'Las Vueltas');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('4', 'Nueva Concepcion');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('4', 'Nueva Trinidad');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('4', 'Nombre de Jesus');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('4', 'Ojos de Agua');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('4', 'Potonico');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('4', 'San Antonio de la Cruz');/*20*/
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('4', 'San Antonio Los Ranchos');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('4', 'San Fernando');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('4', 'San Francisco Lempa');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('4', 'San Francisco Morazan');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('4', 'San Ignacio');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('4', 'San Isidro Labrador');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('4', 'San Jose Cancasque');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('4', 'San Jose Las Flores');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('4', 'San Luis del Carmen');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('4', 'San Miguel de Mercedes');/*30*/
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('4', 'San Rafael');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('4', 'Santa Rita');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('4', 'Tejutla');
+
+/**Cuscatlan */
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('5', 'Candelaria');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('5', 'Cojutepeque');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('5', 'El Carmen');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('5', 'El Rosario');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('5', 'Monte San Juan');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('5', 'Oratorio de Concepcion');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('5', 'San Bartolome Perulapia');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('5', 'San Cristobal');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('5', 'San José Guayabal');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('5', 'San Pedro Perulapan');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('5', 'San Rafael Cedros');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('5', 'San Ramon');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('5', 'Santa Cruz Analquito');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('5', 'Santa Cruz Michapa');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('5', 'Suchitoto');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('5', 'Tenancingo');
+
+/**San salvador */
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('6', 'Aguilares');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('6', 'Apopa');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('6', 'Ayutuxtepeque');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('6', 'Cuscatancingo');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('6', 'Ciudad Delgado');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('6', 'El Paisnal');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('6', 'Guazapa');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('6', 'Ilopango');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('6', 'Mejicanos');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('6', 'Nejapa');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('6', 'Panchimalco');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('6', 'Rosario de Mora');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('6', 'San Marcos');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('6', 'San Martín');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('6', 'San Salvador');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('6', 'Santiago Texacuangos');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('6', 'Santo Tomas');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('6', 'Soyapango');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('6', 'Tonacatepeque');
+
+/**La libertad */
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('7', 'Antiguo Cuscatlán');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('7', 'Chiltiupan');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('7', 'Ciudad Arce');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('7', 'Colon');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('7', 'Comasagua');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('7', 'Huizúcar');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('7', 'Jayaque');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('7', 'Jicalapa');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('7', 'La Libertad');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('7', 'Nueva San Salvador (Santa Tecla)');/*10*/
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('7', 'Nuevo Cuscatlán');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('7', 'San Juan Opico');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('7', 'Quezaltepeque');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('7', 'Sacacoyo');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('7', 'San José Villanueva');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('7', 'San Matías');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('7', 'San Pablo Tacachico');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('7', 'Talnique');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('7', 'Tamanique');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('7', 'Teotepeque');/*20*/
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('7', 'Tepecoyo');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('7', 'Zaragoza');
+
+/**San vicente */
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('8', 'Apastepeque');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('8', 'Guadalupe');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('8', 'San Cayetano Istepeque');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('8', 'San Esteban Catarina');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('8', 'San Ildefonso');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('8', 'San Lorenzo');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('8', 'San Sebastián');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('8', 'San Vicente');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('8', 'Santa Clara');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('8', 'Santo Domingo');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('8', 'Tecoluca');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('8', 'Tepetitán');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('8', 'Verapaz');
+
+/**cabañas */
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('9', 'Cinquera');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('9', 'Dolores');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('9', 'Guacotecti');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('9', 'Ilobasco');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('9', 'Jutiapa');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('9', 'San Isidro');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('9', 'Sensuntepeque');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('9', 'Tejutepeque');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('9', 'Victoria');
+
+/**La paz */
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('10', 'Cuyultitán');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('10', 'El Rosario');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('10', 'Jerusalén');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('10', 'Mercedes La Ceiba');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('10', 'Olocuilta');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('10', 'Paraíso de Osorio');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('10', 'San Antonio Masahuat');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('10', 'San Emigdio');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('10', 'San Francisco Chinameca');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('10', 'San Juan Nonualco');/*10*/
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('10', 'San Juan Talpa');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('10', 'San Juan Tepezontes');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('10', 'San Luis Talpa');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('10', 'San Luis La Herradura');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('10', 'San Miguel Tepezontes');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('10', 'San Pedro Masahuat');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('10', 'San Pedro Nonualco');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('10', 'San Rafael Obrajuelo');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('10', 'Santa María Ostuma');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('10', 'Santiago Nonualco');/*20*/
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('10', 'Tapalhuaca');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('10', 'Zacatecoluca');
+
+/**usulutan */
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('11', 'Alegría');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('11', 'Berlín');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('11', 'California');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('11', 'Concepción Batres');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('11', 'El Triunfo');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('11', 'Ereguayquín');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('11', 'Estanzuelas');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('11', 'Jiquilisco');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('11', 'Jucuapa');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('11', 'Jucuarán');/*10*/
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('11', 'Mercedes Umaña');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('11', 'Nueva Granada');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('11', 'Ozatlán');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('11', 'Puerto El Triunfo');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('11', 'San Agustín');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('11', 'San Buenaventura');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('11', 'San Dionisio');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('11', 'San Francisco Javier');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('11', 'Santa Elena');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('11', 'Santa María');/*20*/
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('11', 'Santiago de María');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('11', 'Tecapán');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('11', 'Usulután');
+
+/**San miguel */
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('12', 'Carolina');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('12', 'Chapeltique');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('12', 'Chinameca');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('12', 'Chirilagua');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('12', 'Ciudad Barrios');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('12', 'Comacarán');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('12', 'El Tránsito');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('12', 'Lolotique');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('12', 'Moncagua');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('12', 'Nueva Guadalupe');/*10*/
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('12', 'Nuevo Edén de San Juan');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('12', 'Quelepa');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('12', 'San Antonio del Mosco');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('12', 'San Gerardo');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('12', 'San Jorge');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('12', 'San Luis de la Reina');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('12', 'San Miguel');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('12', 'San Rafael Oriente');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('12', 'Sesori');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('12', 'Uluazapa');/*20*/
+
+/**Morazan */
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('13', 'Arambala');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('13', 'Cacaopera');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('13', 'Chilanga');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('13', 'Corinto');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('13', 'Delicias de Concepción');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('13', 'El Divisadero');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('13', 'El Rosario');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('13', 'Gualococti');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('13', 'Guatajiagua');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('13', 'Joateca');/*10*/
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('13', 'Jocoaitique');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('13', 'Jocoro');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('13', 'Lolotiquillo');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('13', 'Meanguera');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('13', 'Osicala');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('13', 'Perquín');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('13', 'San Carlos');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('13', 'San Fernando');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('13', 'San Francisco Gotera');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('13', 'San Isidro');/*20*/
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('13', 'San Simón');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('13', 'Sensembra');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('13', 'Sociedad');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('13', 'Torola');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('13', 'Yamabal');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('13', 'Yoloaiquín');
+
+/**La union */
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('14', 'Anamorós');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('14', 'Bolivar');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('14', 'Concepción de Oriente');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('14', 'Conchagua');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('14', 'El Carmen');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('14', 'El Sauce');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('14', 'Intipucá');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('14', 'La Unión');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('14', 'Lislique');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('14', 'Meanguera del Golfo');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('14', 'Nueva Esparta');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('14', 'Pasaquina');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('14', 'Polorós');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('14', 'San Alejo');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('14', 'San José');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('14', 'Santa Rosa de Lima');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('14', 'Yayantique');
+INSERT INTO municipio (id_departamento , nombre_municipio) VALUES ('14', 'Yucuaiquín');
+
 
 insert into papeleta(id_departamento) values (1);
 insert into papeleta(id_departamento) values (2);
@@ -348,124 +648,6 @@ insert into cargodirectiva (cargo) values('Presidente');
 insert into cargodirectiva (cargo) values('Vice Presidente');
 insert into cargodirectiva (cargo) values('Secretario');
 insert into cargodirectiva (cargo) values('Vocal');
-/*Administrador*/
-insert into usuario (id_tipo_usuario,contrasenia,confirmacion) values(1,'12345',0);
-/*Magistrados*/
-insert into usuario (id_tipo_usuario,contrasenia,confirmacion) values(2,'12345',0);
-insert into usuario (id_tipo_usuario,contrasenia,confirmacion) values(2,'12345',0);
-insert into usuario (id_tipo_usuario,contrasenia,confirmacion) values(2,'12345',0);
-insert into usuario (id_tipo_usuario,contrasenia,confirmacion) values(2,'12345',0);
-insert into usuario (id_tipo_usuario,contrasenia,confirmacion) values(2,'12345',0);
-/*creaccion de credencial para adminitrador*/
-insert into credencialTemporal (id_usuario, num_dui) values (1,'00000000-0');
-
-/*Creacion de credenciales de acceso para magistrados (dui)*/
-insert into credencialTemporal (id_usuario, num_dui) values (2,'00000001-0');
-insert into credencialTemporal (id_usuario, num_dui) values (3,'00000002-0');
-insert into credencialTemporal (id_usuario, num_dui) values (4,'00000003-0');
-insert into credencialTemporal (id_usuario, num_dui) values (5,'00000004-0');
-insert into credencialTemporal (id_usuario, num_dui) values (6,'00000005-0');
-
-/*activacion de cuentas para administrador y magistrados*/
-insert into respuesta (id_usuario,id_pregunta,respuesta) values (1,1,'hallelujah');
-insert into respuesta (id_usuario,id_pregunta,respuesta) values (2,2,'no tengo hermanos');
-insert into respuesta (id_usuario,id_pregunta,respuesta) values (3,3,'base de datos');
-insert into respuesta (id_usuario,id_pregunta,respuesta) values (4,4,'no tengo amigos');
-insert into respuesta (id_usuario,id_pregunta,respuesta) values (5,5,'julio profe');
-insert into respuesta (id_usuario,id_pregunta,respuesta) values (6,6,'el principito');
-/*se activa el campo confirmacion para magistrados y adminitrador*/
-update usuario set confirmacion = 1 where id_usuario = 1;
-update usuario set confirmacion = 1 where id_usuario = 2;
-update usuario set confirmacion = 1 where id_usuario = 3;
-update usuario set confirmacion = 1 where id_usuario = 4;
-update usuario set confirmacion = 1 where id_usuario = 5;
-update usuario set confirmacion = 1 where id_usuario = 6;
-
-/*creacion de usuario del cnr*/
-insert into usuario (id_tipo_usuario,contrasenia,confirmacion) values(3,'12345',0);
-insert into credencialtemporal (id_usuario,num_dui) values (7,'00000006-0');
-/*activacion de cuenta para usuario del cnr*/
-insert into respuesta (id_usuario,id_pregunta,respuesta) values (7,1,'el pollito pio');
-update usuario set confirmacion = 1 where id_usuario = 7;
-
-/*creacion y activacion de usuarios para supervisores externos*/
-insert into usuario (id_tipo_usuario,contrasenia,confirmacion) values(4,'12345',0);
-insert into infosupext (id_usuario,identificacion,nombre,apellido,sexo,pais,organizacion) values (8,'oiu887-98-2','Robert','Lewandowski','m','polonia','unicef');
-insert into respuesta (id_usuario,id_pregunta,respuesta) values (8,7,'programar');
-update usuario set confirmacion = 1 where id_usuario = 8;
-
-insert into usuario (id_tipo_usuario,contrasenia,confirmacion) values(4,'12345',0);
-insert into infosupext (id_usuario,identificacion,nombre,apellido,sexo,pais,organizacion) values (9,'u887-98-209','Fredy','Meruri','m','croacia','queen');
-insert into respuesta (id_usuario,id_pregunta,respuesta) values (9,7,'Tocar guitarra');
-update usuario set confirmacion = 1 where id_usuario = 9;
-
-/*observaciones de los supervisores externos*/
-insert into observacion (id_usuario,observacion) values (8,'El sistema de elecciones es muy lento, hay poca transparencia al momento del conteo');
-insert into observacion (id_usuario,observacion) values (9,'Se necesita mejorar el proceso de conteno de voto, para optimizar los procesos al maximo y agilizar las elecciones');
-
-
-/*se registra los magistrados que autorizaron la importacion de registros del cnr*/
-insert into bitacoraacciones (fecha,hora,accion) values('2016-08-14','11:55:00','Registro de datos CNR');
-insert into detallebitacora (id_bitacora,num_dui) values (1,'00000001-0');
-insert into detallebitacora (id_bitacora,num_dui) values (1,'00000002-0');
-insert into detallebitacora (id_bitacora,num_dui) values (1,'00000003-0');
-
-/*registro de datos del cnr*/
-insert into padronelectoral (num_dui,nombre,apellido,fecha_nac,sexo,direccion_especifica,id_municipio) values ('05423275-0','carlos eliseo','menjivar flores','1996-9-23','m','Catedral metropolitana, #19',1);
-insert into usuario (id_tipo_usuario,contrasenia,confirmacion) values(10,'12345',0);
-
-insert into padronelectoral (num_dui,nombre,apellido,fecha_nac,sexo,direccion_especifica,id_municipio) values ('05423277-0','joel eliseo','menjivar vai','1996-9-23','m','Catedral metropolitana, #19',1);
-insert into usuario (id_tipo_usuario,contrasenia,confirmacion) values(10,'12345',0);
-
-insert into padronelectoral (num_dui,nombre,apellido,fecha_nac,sexo,direccion_especifica,id_municipio) values ('05423256-0','ernesto edenilson','menjivar flores','1995-9-23','m','Catedral metropolitana, #19',1);
-insert into usuario (id_tipo_usuario,contrasenia,confirmacion) values(10,'12345',0);
-
-insert into padronelectoral (num_dui,nombre,apellido,fecha_nac,sexo,direccion_especifica,id_municipio) values ('05424975-0','frank eliseo','menjivar batres','1996-9-23','m','Catedral metropolitana, #19',1);
-insert into usuario (id_tipo_usuario,contrasenia,confirmacion) values(10,'12345',0);
-
-insert into padronelectoral (num_dui,nombre,apellido,fecha_nac,sexo,direccion_especifica,id_municipio) values ('02343275-0','carlos edenilson','clapton batres','1936-9-23','m','Catedral metropolitana, #19',1);
-insert into usuario (id_tipo_usuario,contrasenia,confirmacion) values(10,'12345',0);
-
-/*---creacion de partidos---*/
-insert into partido (nombre,acronimo,num_dui,imagen) values ('Alianza Republicana Nacionalista','ARENA','05423275-0','img/bandera.jpg');
-
-/*registro de candidatos partidarios*/
-insert into candidato (num_dui,foto,tipo) values ('05423277-0','img/1.jpg',1);
-insert into detallepartido (id_candidato,id_partido) values (1, 1);
-
-/*registro de candidatos independientes*/
-insert into candidato (num_dui,foto,tipo) values ('05423256-0','img/2.jpg',0);
-
-/*creacion de la papeleta (es una por departamento) {esta papeleta pertenece a san salvador, se inicializo en la linea 11}*/
-insert into detallepapeleta (id_papeleta,id_candidato) values (1,1);
-insert into detallepapeleta (id_papeleta,id_candidato) values (1,2);
-
-/*registro de centros de votacion*/
-insert into centrovotacion (id_municipio,direccion_especifica,num_dui,nombre_centro,num_jrv_disponibles) values (1,'Colonia jerusalen, #23','05424975-0','Casa comunal',12);
-
-/*registrando jrv por centro de votacion*/
-insert into jrv (id_centro_votacion,correlativo_jrv) values (1,'sssm0901');
-
-/*directiva de jrv*/
-insert into directivajrv (num_dui,id_jrv,id_partido,id_cargo_directiva, tipo) values ('05424975-0',1,1,1,0);
-
-/*asingando votantes a jrv*/
-insert into votanteporjrv (num_dui,id_jrv,estado) values ('02343275-0',1,0);
-
-/*abriendo una jrv*/
-insert into aperturajrv (id_jrv,fecha,hora) values (1,'2016-08-16','8:00:00');
-
-/*realizando un voto*/
-insert into voto (id_jrv) values (1);
-
-/*--probando los 4 tipos de voto--*/
-insert into votoabstenido (id_voto) values (1);
-insert into votobandera (id_voto,id_partido) values (1,1);
-insert into votomarca (id_voto,id_candidato,valor_porcentual) values (1,1,0.5);
-insert into votoindependiente (id_voto,id_candidato,valor_porcentual) values (1,1,0.5);
-
-/*cerrando una jrv*/
-insert into cierrejrv (id_jrv,fecha,hora) values (1,'2016-08-16','22:00:00');
 
 
 /*procedimientos almacenados agregados por carlos*/
@@ -808,12 +990,84 @@ end;
 $body$
 language plpgsql;
 
+
+/*
+	creacion de los demas usuarios del sistema, que no sean administrador, usuario del cnr, votante, magistrado o supervisor externo
+	los demas usuarios tienen caracteristicas en comun, el procedimiento recibe 2 parametros, el numero de dui y el tipo de usuario
+	para que un usuario de este tipo se pueda crear debe estar previamente registrado en la tabla padronelectoral, en caso contrario retorna 0 y muestra
+	un mensaje de alerta
+	el procedimiento solo permite la creacion de tipos de usuario 5, 6, 7, 8 y 9 que son
+	4.supervisor externo, 5.representante de partido, 6.gestor de informacion, 7.director de centro de votacion, 8.publicista, 9.presidente de jrv
+
+*/
+create or replace function agregarUsuario(
+	in _num_dui varchar(10),
+	in _tipo int,
+	out estado int,
+	out mensaje varchar(60)
+) returns setof record as
+$body$
+declare
+	id int;
+	texto varchar(60);
+	numero int;
+begin
+	if exists(select * from padronelectoral where num_dui = _num_dui) then
+		if (_tipo >= 5 and _tipo <=9) then
+			select u.id_usuario into id from padronelectoral p 
+			inner join usuariopadron up on up.num_dui = p.num_dui
+			inner join usuario u on u.id_usuario = up.id_usuario
+			where p.num_dui = _num_dui;
+			update usuario set id_tipo_usuario = _tipo;
+			texto = 'Usuario agregado';
+			numero = 1;
+		else
+			texto = 'No tienes los privilegios para crear ese tipo de usuario';
+			numero = 0;
+		end if;
+	else
+		texto = 'El usuario no existe en el padron electoral';
+		numero = 0;
+	end if;
+	return query select numero, texto;
+	return;
+end;
+$body$
+language plpgsql;
+
+
 /*uso de los procedimiento almacenados*/
 /*los parametros de entrada son numero de dui y contraseña*/
-select * from agregarMagistrado('00000019-0','12345','Mauricio','Funes','1976-09-12','m','Avenida las amapolas',1);
-select * from agregarRepresentanteCNR('00000020-0','12345','Beatriz','Cocar','1996-06-12','f','Canton el espino, #12',2);
-select * from agregarVotante('12345671-0','Maria','Flores','1994-05-10','f','kernel informatico $5',2);
+select * from agregarMagistrado('00000001-0','12345','Carlos','Menjivar','1976-09-12','m','Avenida las amapolas',1);
+select * from agregarMagistrado('00000002-0','12345','Orlando','Menjivar','1976-08-12','m','Direccion 2',2);
+select * from agregarMagistrado('00000003-0','12345','Dayana','Guzman','1987-09-12','f','Calle #12, Escalon',3);
+select * from agregarMagistrado('00000004-0','12345','Flor','Fernandez','1976-12-05','f','Colonia enrique araujo',6);
+select * from agregarMagistrado('00000005-0','12345','Patricio','roque','1976-09-01','m','Avenida montreal',10);
+
+select * from agregarRepresentanteCNR('00000006-0','12345','Beatriz','Cocar','1996-06-12','f','Canton el espino, #12',2);
+
 select * from agregarSupervisorExt('053315-0980','12345','Will','Smith','m','Estados Unidos','OEA');
+select * from agregarSupervisorExt('6656-0-0.09','12345','Robert','Lewandowski','m','Rusia','UEFA');
+select * from agregarSupervisorExt('090-AED-B6E-2','12345','Mijail','Black','m','Croacia','ONU');
+
+select * from agregarVotante('00000007-0','Maria','Flores','1994-05-10','f','kernel informatico $5',2);
+select * from agregarVotante('00000008-0','Sara','Benitez','1994-05-10','f','Direcion falsa',2);
+select * from agregarVotante('00000009-0','Jorge','Anne','1994-05-10','m','Direccion postisa',22);
+select * from agregarVotante('00000010-0','Isaac','Ponce','1994-05-10','m','Direccion postisa',30);
+select * from agregarVotante('00000011-0','Jonh','Mendoza','1994-05-10','m','Direccion postisa',9);
+select * from agregarVotante('00000012-0','Magdalena','De Ramirez','1994-05-10','f','Direccion postisa',6);
+select * from agregarVotante('00000013-0','Fernanda','Olivares','1994-05-10','f','Direccion postisa',10);
+select * from agregarVotante('00000013-0','Melvin','Dagoberto','1994-05-10','m','Direccion postisa',8);
+select * from agregarVotante('00000015-0','Fredy','Mendoza','1994-05-10','m','Direccion postisa',24);
+select * from agregarVotante('00000016-0','Faustino','Asprilla','1994-05-10','m','Calle el matazano',25);
+
+select * from agregarUsuario('00000007-0',5);
+select * from agregarUsuario('00000008-0',6);
+select * from agregarUsuario('00000009-0',7);
+select * from agregarUsuario('00000010-0',8);
+select * from agregarUsuario('00000011-0',9);
+
+
 
 select * from entrarAdministrador('00000000-0','12345');
 select * from entrarMagistrado('00000001-0','12345');
