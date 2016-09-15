@@ -992,6 +992,46 @@ language plpgsql;
 
 
 /*
+	director del tse, es quien registra a los gestores de jrv por departmento y demas usuarios 
+	que los requiera el sistema
+*/
+
+create or replace function agregarDirectorTse(
+	in _num_dui varchar(10),
+	in _contrasenia varchar(15),
+	in _nombre varchar(20),
+	in _apellido varchar(20),
+	in _fecha_nac date,
+	in _sexo varchar(2),
+	in _direccion varchar(30),
+	in _municipio int,
+	out estado int,
+	out mensaje varchar(60)
+) returns setof record as
+$body$
+declare
+	idgenerado int;
+	texto varchar(60);
+	numero int;
+begin
+	if not exists(select * from credencialtemporal where num_dui = _num_dui) then
+		insert into usuario(id_tipo_usuario,contrasenia,confirmacion) values (6,'12345',0);
+		idgenerado = lastval();
+		insert into credencialtemporal(id_usuario,num_dui) values (idgenerado,_num_dui);
+		insert into excepcionusuario(id_usuario,num_dui,nombre,apellido,fecha_nac,sexo,direccion_especifica,id_municipio) values (idgenerado,_num_dui,_nombre,_apellido,_fecha_nac,_sexo,_direccion,_municipio);
+		texto = 'Director de TSE registrado correctamente';
+		numero = 1;
+	else
+		texto = 'El numero de Dui ya esta registrado';
+		numero = 0;
+	end if;
+	return query select numero,texto;
+	return;
+end;
+$body$
+language plpgsql;
+
+/*
 	creacion de los demas usuarios del sistema, que no sean administrador, usuario del cnr, votante, magistrado o supervisor externo
 	los demas usuarios tienen caracteristicas en comun, el procedimiento recibe 2 parametros, el numero de dui y el tipo de usuario
 	para que un usuario de este tipo se pueda crear debe estar previamente registrado en la tabla padronelectoral, en caso contrario retorna 0 y muestra
@@ -1013,7 +1053,7 @@ declare
 	numero int;
 begin
 	if exists(select * from padronelectoral where num_dui = _num_dui) then
-		if (_tipo >= 5 and _tipo <=9) then
+		if (_tipo >= 5 and _tipo <=9 and _tipo != 6) then
 			select u.id_usuario into id from padronelectoral p 
 			inner join usuariopadron up on up.num_dui = p.num_dui
 			inner join usuario u on u.id_usuario = up.id_usuario
@@ -1036,7 +1076,7 @@ $body$
 language plpgsql;
 
 /*
-	procedimiento de login compartido por administrador, usuario cnr y magistrados
+	procedimiento de login compartido por administrador, usuario cnr, magistrados, y director del tse
 	retorna el tipo de usuario y el dui
 */
 create or replace function entrar(
@@ -1078,6 +1118,8 @@ select * from agregarMagistrado('00000004-0','12345','Flor','Fernandez','1976-12
 select * from agregarMagistrado('00000005-0','12345','Patricio','roque','1976-09-01','m','Avenida montreal',10);
 
 select * from agregarRepresentanteCNR('00000006-0','12345','Beatriz','Cocar','1996-06-12','f','Canton el espino, #12',2);
+
+select * from agregarDirectorTse('00000000-0','12345','Mario','Ayala','1987-09-11','m','Calle el matazano',13);
 
 select * from agregarSupervisorExt('053315-0980','12345','Will','Smith','m','Estados Unidos','OEA');
 select * from agregarSupervisorExt('6656-0-0.09','12345','Robert','Lewandowski','m','Rusia','UEFA');
