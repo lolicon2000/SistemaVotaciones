@@ -993,7 +993,7 @@ language plpgsql;
 
 /*
 	director del tse, es quien registra a los gestores de jrv por departmento y demas usuarios 
-	que los requiera el sistema
+	que los requiera el sistema, estos funcionan
 */
 
 create or replace function agregarDirectorTse(
