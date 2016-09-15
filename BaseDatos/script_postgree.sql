@@ -630,7 +630,7 @@ insert into tipousuario (tipo_usuario ) values ('Magistrado');
 insert into tipousuario (tipo_usuario ) values ('Representante CNR');
 insert into tipousuario (tipo_usuario ) values ('Supervisor externo');
 insert into tipousuario (tipo_usuario ) values ('Representante Partido');
-insert into tipousuario (tipo_usuario ) values ('Gestor de informacion');
+insert into tipousuario (tipo_usuario ) values ('Director TSE');
 insert into tipousuario (tipo_usuario ) values ('Director centro de votacion');
 insert into tipousuario (tipo_usuario ) values ('Publicista');  
 insert into tipousuario (tipo_usuario ) values ('Presidente JRV');
@@ -1064,7 +1064,8 @@ end;
 $body$
 language plpgsql;
 
-/*creacion de cuenta de administrador*/
+/*creacion de cuenta de administrador
+*/
 insert into usuario (id_tipo_usuario,contrasenia,confirmacion) values(1,'12345',0);
 insert into credencialTemporal (id_usuario, num_dui) values (1,'00000000-0');
 
